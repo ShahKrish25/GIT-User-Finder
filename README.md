@@ -17,6 +17,10 @@ This project does not require any installation. It is a web-based application th
 2. **Search for a User**: Enter a GitHub username in the search bar and click the "Search" button.
 3. **View Results**: The application will fetch and display the user's profile information, repositories, and contribution activity.
 
+## Demo Video
+Check out the demo video for a quick overview of the application:
+[Watch the Demo Video](assets/git.mp4)
+
 ## API
 The application uses the GitHub API to fetch user data. The following endpoints are utilized:
 

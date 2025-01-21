@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>GitHub Stats - User Insights</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stats.css" />
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
+    <link href="let-it-snow.css" rel="stylesheet">
+    <script src="let-it-snow.min.js"></script>
+
+</head>
+<body>
+    <!-- Alert Section -->
+    <div class="alert alert-primary alert-dismissible fade show floating-alert" role="alert">
+        <div class="text-center">
+            <strong>Welcome back User!</strong>
+            <p class="pt-2 mb-0">
+                Discover GitHub User Stats – Simplified and Enhanced!
+            </p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <div class="logo-container me-2">
+                <img src="github-2.gif" alt="GitHub GIF" class="logo-image">
+            </div>
+            <a class="navbar-brand" href="/bolt/">GitHub Insights</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="stats.html">Stats</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item" style="cursor: pointer !important;">
+                        <a class="nav-link mode">Dark <i class="ri-moon-line"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Stats Hero Section -->
+    <!-- <header class="stats-hero">
+        <div class="stats-hero-bg"></div>
+        <div class="container">
+            <div class="stats-hero-content text-center">
+                <h1 class="stats-title">GitHub Stats Generator</h1>
+                <p class="stats-subtitle">Generate beautiful statistics for any GitHub profile</p>
+                <div class="search-container">
+                    <div class="input-group mx-auto">
+                        <input type="text" id="stats-username" class="form-control" placeholder="Enter GitHub Username" />
+                        <button class="btn btn-primary search-btn" id="generate-stats-btn">
+                            <i class="ri-bar-chart-line"></i>
+                            <span>Generate Stats</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> -->
+
+    <!-- animated hero -->
+     <!-- Hero Section with Snow Effect -->
+  <header class="stats-hero">
+    <div class="stats-hero-bg"></div>
+    <div class="container">
+      <div class="stats-hero-content text-center">
+        <h1 class="stats-title">GitHub Stats Generator <img src="https://roadmap.sh/images/gifs/rocket.gif" width="50"></h1>
+        <p class="stats-subtitle">Generate beautiful statistics for any GitHub profile</p>
+        <div class="search-container">
+          <div class="input-group mx-auto">
+            <input type="text" id="stats-username" class="form-control" placeholder="Enter GitHub Username" />
+            <button class="btn btn-primary search-btn" id="generate-stats-btn">
+              <i class="ri-bar-chart-line"></i>
+              <span>Generate Stats</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <!-- Loading Animation -->
+    <div id="stats-loading" class="loading-container d-none">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p class="loading-text">Generating amazing stats...</p>
+        </div>
+    </div>
+
+    <!-- Stats Output Section -->
+    <section id="stats-output" class="stats-section d-none" aria-live="polite">
+        <div class="container">
+            <div class="stats-grid">
+                <!-- Profile Overview -->
+                <div class="stats-card profile-overview">
+                    <div class="stats-card-content">
+                        <img id="stats-avatar" src="/placeholder.svg" alt="Profile" class="stats-avatar">
+                        <h2 id="stats-username-display" class="stats-name">Username</h2>
+                        <div class="stats-grade">
+                            <div class="grade-circle">
+                                <span id="grade-value">A+</span>
+                            </div>
+                            <span class="grade-label">GitHub Grade</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="stats-card metrics-card">
+                    <div class="stats-card-content">
+                        <h3 class="metrics-title">Key Metrics</h3>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <i class="ri-star-line" aria-hidden="true"></i>
+                                <span id="total-stars" class="metric-value">0</span>
+                                <span class="metric-label">Total Stars</span>
+                            </div>
+                            <div class="metric-item">
+                                <i class="ri-git-commit-line" aria-hidden="true"></i>
+                                <span id="total-commits" class="metric-value">0</span>
+                                <span class="metric-label">Commits (2025)</span>
+                            </div>
+                            <div class="metric-item">
+                                <i class="ri-git-pull-request-line" aria-hidden="true"></i>
+                                <span id="total-prs" class="metric-value">0</span>
+                                <span class="metric-label">Pull Requests</span>
+                            </div>
+                            <div class="metric-item">
+                                <i class="ri-error-warning-line" aria-hidden="true"></i>
+                                <span id="total-issues" class="metric-value">0</span>
+                                <span class="metric-label">Issues</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language Distribution -->
+                <div class="stats-card language-card">
+                    <div class="stats-card-content">
+                        <h3 class="language-title">Top Languages</h3>
+                        <div id="language-bars" class="language-bars"></div>
+                    </div>
+                </div>
+
+                <!-- Contribution Calendar -->
+                <div class="stats-card contribution-card">
+                    <div class="stats-card-content">
+                        <h3 class="contribution-title">Contribution Calendar</h3>
+                        <div class="contribution-calendar" id="contribution-calendar"></div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="stats-card activity-card">
+                    <div class="stats-card-content">
+                        <h3 class="activity-title">Recent Activity</h3>
+                        <ul id="activity-list" class="activity-list"></ul>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+            </div>
+            <div class="stats-card achievements-card">
+                <div class="stats-card-content">
+                    <h3 class="achievements-title">GitHub Achievements</h3>
+                    <div id="achievements-list" class="row g-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2025 GitHub Insights. Built with <i class="ri-heart-fill text-danger"></i> by Krish</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="ri-github-fill"></i></a>
+                    <a href="#" class="social-link"><i class="ri-twitter-fill"></i></a>
+                    <a href="#" class="social-link"><i class="ri-linkedin-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="let-it-snow.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Activate snow effect on the stats-hero section
+      $.letItSnow('.stats-hero', {
+        stickyFlakes: 'lis-flake--js',
+        makeFlakes: true,
+        sticky: true,
+      });
+    });
+  </script>
+    <script src="stats.js"></script>
+</body>
+</html>
+

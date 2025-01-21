@@ -1,0 +1,761 @@
+/* Stats Page Specific Styles */
+.stats-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+.stats-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.stats-hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.4) 0%, transparent 50%);
+  animation: pulse 8s ease-in-out infinite alternate;
+}
+
+.stats-hero-content {
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.stats-title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stats-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+/* Stats Grid Layout */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+/* Stats Cards */
+.stats-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  overflow: hidden;
+  transition: var(--transition);
+  opacity: 0;
+  opacity: 1 !important;
+    visibility: visible !important;
+  transform: translateY(20px);
+}
+
+.stats-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* .stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+} */
+
+.stats-card-content {
+  padding: 2rem;
+}
+
+/* Profile Overview Card */
+.profile-overview {
+  text-align: center;
+  grid-column: span 2;
+}
+
+.stats-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 4px solid var(--primary);
+  padding: 4px;
+  background: var(--gradient);
+}
+
+.stats-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: var(--text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stats-grade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grade-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+/* Metrics Card */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(37, 99, 235, 0.1);
+  transition: var(--transition);
+}
+
+.metric-item:hover {
+  transform: scale(1.05);
+  background: rgba(37, 99, 235, 0.2);
+}
+
+.metric-item i {
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Language Card */
+.language-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.language-bar {
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.language-progress {
+  height: 100%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: width 1s ease-in-out;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contribution Calendar */
+.contribution-calendar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Adjust as needed */
+  gap: 0.50rem;
+  margin-top: 1rem;
+  max-width: 100%;
+  
+  /* Enable horizontal scrolling */
+  overflow-x: auto; 
+  overflow-y: hidden; /* Prevent vertical scrolling */
+  padding-bottom: 0.5rem;
+
+  /* Make scrollbar visible */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: rgba(37, 99, 235, 0.5) transparent;
+}
+
+.contribution-calendar::-webkit-scrollbar {
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.contribution-calendar::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.5); /* Scrollbar thumb color */
+  border-radius: 4px;
+}
+
+.contribution-calendar::-webkit-scrollbar-track {
+  background: transparent; /* Scrollbar track color */
+}
+
+.contribution-day {
+  aspect-ratio: 1;
+  display:flex;
+  text-align: center;
+  justify-content:center;
+  align-items:center;
+  border-radius: 0.25rem;
+  background: rgba(37, 99, 235, 0.1);
+  transition: var(--transition);
+  min-width: 132px; /* Ensure consistent sizing */
+}
+
+
+
+
+
+.contribution-day:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+/* Loading Animation */
+.loading-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .profile-overview {
+    grid-column: span 1;
+  }
+
+  .stats-title {
+    font-size: 2rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .language-bar {
+    height: 2rem;
+  }
+
+  .language-progress {
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+  }
+
+  .contribution-calendar {
+    grid-template-columns: repeat(7, minmax(10px, 1fr));
+  }
+}
+
+.language-bar:hover .language-progress {
+  filter: brightness(1.1);
+}
+
+/* New Sections */
+.activity-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.activity-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.activity-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Improve responsiveness */
+@media (max-width: 576px) {
+  .stats-title {
+    font-size: 2rem;
+  }
+
+  .stats-subtitle {
+    font-size: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contribution-calendar {
+    grid-template-columns: repeat(7, minmax(8px, 1fr));
+  }
+}
+
+/* Hover effects */
+.stats-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* .stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+} */
+
+.metric-item {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.metric-item:hover {
+  transform: scale(1.05);
+  background-color: rgba(37, 99, 235, 0.2);
+}
+
+.stats-visible {
+    display: block !important;
+}
+
+
+
+
+
+
+
+/* Contribution Calendar - Mobile Optimization */
+@media (max-width: 576px) {
+  .contribution-calendar {
+    grid-template-columns: repeat(7, minmax(30px, 1fr)); /* Ensure smaller day squares */
+    gap: 0.25rem; /* Reduce spacing between day cells */
+    padding: 0.5rem; /* Adjust padding for smaller viewports */
+  }
+
+  .contribution-day {
+    min-width: 30px; /* Ensure day cells are compact */
+    height: 30px; /* Maintain a square aspect ratio */
+    font-size: 0.7rem; /* Reduce font size for better fit */
+    line-height: 1; /* Adjust line height for compact text */
+  }
+
+  .contribution-day:hover {
+    transform: scale(1.05); /* Subtle hover effect for smaller screens */
+  }
+}
+
+/* Achievement Cards - Mobile Optimization */
+@media (max-width: 576px) {
+  .achievement-card {
+    padding: 1rem; /* Reduce padding to fit smaller screens */
+    font-size: 0.9rem; /* Adjust font size for compact text */
+    margin-bottom: 1rem; /* Ensure spacing between cards */
+  }
+
+  .achievement-icon {
+    font-size: 1.8rem; /* Reduce icon size for balance */
+    margin-bottom: 0.5rem; /* Adjust spacing below the icon */
+  }
+
+  .achievement-card:hover {
+    transform: translateY(-3px); /* Subtle hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reduce shadow intensity */
+  }
+}
+
+/* Contribution Calendar - Remove Text for Mobile */
+@media (max-width: 576px) {
+  .contribution-day {
+    min-width: 30px; /* Ensure compact day cells */
+    height: 30px; /* Maintain square aspect ratio */
+    font-size: 0; /* Hide text inside the day cells */
+    line-height: 1; /* Adjust line height for compact sizing */
+    position: relative; /* For tooltip or hover effects if needed */
+  }
+
+  .contribution-day:hover::after {
+    content: attr(data-tooltip); /* Optional: Show tooltip on hover if needed */
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+    display: block;
+  }
+}
+
+/* Reduce Search Bar Size for Mobile */
+/* Styles for Contribution Calendar */
+@media (max-width: 576px) {
+  .stats-hero {
+    padding: 3rem 0; /* Adjust padding for smaller screens */
+  }
+
+  .stats-title {
+    font-size: 2rem; /* Smaller title on mobile */
+  }
+
+  .stats-subtitle {
+    font-size: 1rem; /* Smaller subtitle on mobile */
+  }
+
+  /* Search Bar */
+  .search-container {
+    width: 100%; /* Reduced width for better fit on small screens */
+    margin: 0 auto;
+  }
+
+  .input-group {
+    width: 100%; /* Ensure input group fills available space */
+  }
+
+  .form-control {
+    padding: 1.2rem 0.75rem; /* Adjust padding for the input field */
+    font-size: 0.9rem; /* Smaller font size */
+  }
+
+  .search-btn {
+    padding: 0.5rem 1rem; /* Adjust button padding */
+    font-size: 0.9rem; /* Smaller button text */
+    width:46.5%;
+  }
+
+  .search-btn i {
+    font-size: 1rem; /* Icon size adjustment */
+  }
+
+  /* Optional: Hide text in the contribution calendar on mobile */
+  .contribution-day {
+    font-size: 0; /* Hide text on smaller screens */
+  }
+}
+
+/* Restore default styles for larger screens */
+@media (min-width: 577px) {
+  .search-container {
+    width: auto; /* Restore original width for larger screens */
+  }
+}
+/* Featured Repositories Section */
+.featured-repos-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--background), var(--card-bg));
+  min-height: 60vh;
+}
+
+.featured-repo-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  min-width: 200px;
+  min-height: 250px;
+  height: 100%;
+  /* Ensure the card takes full height */
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  /* Add this line */
+  flex-direction: column;
+  /* Add this line */
+}
+
+.featured-repo-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to bottom right,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.05));
+  transform: rotate(30deg);
+  pointer-events: none;
+}
+
+.featured-repo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.featured-repo-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.featured-repo-description {
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.featured-repo-stats {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+  flex-basis: 50%;
+  white-space: normal;
+}
+
+.featured-repo-stat i {
+  font-size: 1rem;
+}
+
+/* Contribution Heatmap Section */
+.heatmap-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--card-bg), var(--background));
+}
+
+.heatmap-container {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  gap: 3px;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.heatmap-cell {
+  width: 100%;
+  padding-top: 100%;
+  /* Create square cells */
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .featured-repos-section {
+      padding: 3rem 0;
+  }
+
+  .featured-repo-name {
+      font-size: 1.1rem;
+  }
+
+  .featured-repo-description {
+      font-size: 0.8rem;
+      line-clamp: 2;
+  }
+}
+
+.card-body {
+  flex-grow: 1;
+  /* Add this line to make the body grow */
+}
+
+.repo-type {
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+  overflow: hidden;
+  /* Hide overflow */
+  text-overflow: ellipsis;
+  /* Add ellipsis for overflow text */
+}
+
+/* claude img center */
+.featured-repo-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  height: 100%;
+  /* Ensure consistent height */
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-repo-card .card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.featured-repo-avatar-container {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 1rem auto;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-repo-avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-repo-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.featured-repo-description {
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  text-align: center;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.featured-repo-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.featured-repo-stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.repo-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}

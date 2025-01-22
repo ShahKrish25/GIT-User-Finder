@@ -63,10 +63,10 @@ The application has been tested manually. No automated tests are currently avail
 
 ## Contact
 For any inquiries or feedback, please reach out to the project maintainer at [kvshah25092005@gmail.com](mailto:kvshah25092005@gmail.com).
-
-[![GIT USER FINDER VIDEO](bolt/Screenshot%202025-01-22%20095135.png)]([bolt/github-2.gif](https://dl.dropboxusercontent.com/scl/fi/48n4yqhotjx48th4ihysm/GIT.mp4?rlkey=9kgn369c6lv4b365mr1penqnx&st=dwli136m&dl=0&raw=1)
+[![GIT USER FINDER VIDEO](bolt/Screenshot%202025-01-22%20095135.png)](https://dl.dropboxusercontent.com/scl/fi/48n4yqhotjx48th4ihysm/GIT.mp4?rlkey=9kgn369c6lv4b365mr1penqnx&st=dwli136m&dl=0&raw=1)
 
 <video width="640" height="360" controls>
   <source src="https://dl.dropboxusercontent.com/scl/fi/48n4yqhotjx48th4ihysm/GIT.mp4?rlkey=9kgn369c6lv4b365mr1penqnx&st=dwli136m&dl=0&raw=1" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+

@@ -62,4 +62,11 @@ The application has been tested manually. No automated tests are currently avail
 - Special thanks to the open-source community for their contributions and support.
 
 ## Contact
-For any inquiries or feedback, please reach out to the project maintainer at [your-email@example.com](mailto:your-email@example.com).
+For any inquiries or feedback, please reach out to the project maintainer at [kvshah25092005@gmail.com](mailto:kvshah25092005@gmail.com).
+
+[![Video Title](https://www.dropbox.com/scl/fi/idj2g8expzjxfbt5zx8qi/Screenshot-2025-01-22-095135.png?rlkey=7de6skz4xcwt5pyjuugvb90o7&st=kr2a7xrn&dl=0)](https://www.dropbox.com/scl/fi/48n4yqhotjx48th4ihysm/GIT.mp4?rlkey=9kgn369c6lv4b365mr1penqnx&st=dwli136m&dl=0)
+
+<video width="640" height="360" controls>
+  <source src="https://dl.dropboxusercontent.com/scl/fi/48n4yqhotjx48th4ihysm/GIT.mp4?rlkey=9kgn369c6lv4b365mr1penqnx&st=dwli136m&dl=0&raw=1" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
